@@ -94,8 +94,9 @@ arrivals@^2.1.2:
     debug "^4.0.1"
     nanotimer "0.3.14"
 
-artillery-engine-socketio-v3@../artillery-engine-socketio-v3:
+artillery-engine-socketio-v3@gruffT/artillery-engine-socketio-v3:
   version "1.0.0"
+  resolved "https://codeload.github.com/gruffT/artillery-engine-socketio-v3/tar.gz/d3cb93a11598e6462dc3268bbea1abc47d8df1d0"
   dependencies:
     artillery "1.6.1"
     async "^1.5.2"

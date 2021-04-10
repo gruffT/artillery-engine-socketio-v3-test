@@ -7,7 +7,7 @@
   "private": false,
   "dependencies": {
     "artillery": "^1.6.2",
-    "artillery-engine-socketio-v3": "../artillery-engine-socketio-v3"
+    "artillery-engine-socketio-v3": "gruffT/artillery-engine-socketio-v3"
   },
   "devDependencies": {
     "npm-run-all": "^4.1.5",
