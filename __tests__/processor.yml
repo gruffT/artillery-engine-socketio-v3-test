@@ -1,0 +1,34 @@
+config:
+  target: "http://localhost:4005"
+  engines:
+    socketio-v3: {}
+  socketio:
+    transports: ["websocket"]
+    extraHeaders:
+      x-auth-token: "{{ token }}"
+      x-foo-bar: "fooBar"
+  phases:
+    - duration: 1
+      arrivalRate: 1
+      name: One shot test
+  processor: "./processor.js"
+scenarios:
+  - name: processor call test
+    engine: socketio-v3
+    flow:
+      - emit: ["ping", { payload: "foo" }]
+        response:
+          channel: "pong"
+          capture:
+            json: "$.respPayload"
+            as: "resp"
+      - function: "processorFn"
+      - emit: ["ping", { payload: "foo" }]
+        beforeRequest: "logMe"
+        reconnect: true
+        namespace: /nsp
+        response:
+          channel: "pong"
+          capture:
+            json: "$.respPayload"
+            as: "resp"
